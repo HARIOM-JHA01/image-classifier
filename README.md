@@ -20,7 +20,7 @@ These instructions will help you set up and run the web service locally for deve
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/HARIOM_JHA01/image-classifier.git
+   https://github.com/HARIOM-JHA01/image-classifier.git
    cd image-classifier
    ```
 
