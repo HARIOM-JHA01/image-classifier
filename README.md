@@ -1,4 +1,3 @@
-```markdown
 # Image Classification Web Service
 
 This is a simple Flask web service for image classification using a pre-trained ResNet50 model. The service accepts images via a POST request and returns predictions about the contents of the image.
