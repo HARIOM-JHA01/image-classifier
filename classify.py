@@ -3,7 +3,7 @@ from flask_cors import CORS
 from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input, decode_predictions
 from tensorflow.keras.preprocessing import image
 import numpy as np
-
+import os
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
@@ -39,7 +39,6 @@ def classify_image():
         predicted_class = predict_image_class(temp_path)
         
         # Remove the temporary image
-        import os
         os.remove(temp_path)
         
         return jsonify({"class": predicted_class[1], "probability": float(predicted_class[2])})
@@ -47,4 +46,5 @@ def classify_image():
         return jsonify({"error": str(e)})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3000)
+    port = int(os.environ.get('PORT', 3000))
+    app.run(host='0.0.0.0', port=port)
