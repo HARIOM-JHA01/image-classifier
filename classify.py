@@ -41,7 +41,12 @@ def classify_image():
         # Remove the temporary image
         os.remove(temp_path)
         
-        return jsonify({"class": predicted_class[1], "probability": float(predicted_class[2])})
+        response_data = {
+            "class": predicted_class[1],
+            "probability": float(predicted_class[2])
+        }
+        
+        return jsonify(response_data)
     except Exception as e:
         return jsonify({"error": str(e)})
 
